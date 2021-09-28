@@ -59,9 +59,6 @@ server.delete('/delete/:id',deleteHandeler)
 
 
 
-
-
-
 // Handelers
 
 function staticFruits(req, res) {
@@ -100,6 +97,17 @@ function getFromDataBaseHandeler(req,res) {
         if (err) {
             console.log(error);
             
+        }
+        else{
+            res.send(result)
+        }
+    })
+
+
+    fruitsModel.find({userEmail:userEmail}, (err,result)=>{
+
+        if (err) {
+            console.log(`error`);
         }
         else{
             res.send(result)
